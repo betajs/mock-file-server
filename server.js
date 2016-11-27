@@ -17,4 +17,4 @@ var server = Server.init({
 	staticServe: opt.staticserve
 });
 
-Server.run(server, opt.port ? parseInt(opt.port, 10) : null);
+Server.run(server, opt.port || process.env.PORT || 5000);
