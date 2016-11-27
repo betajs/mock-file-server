@@ -1,0 +1,59 @@
+{
+    "homepage": "https://github.com/betajs/mock-file-server",
+    "license": "Apache-2.0",
+    "licenses": [
+        {
+            "type": "Apache-2.0",
+            "url": "https://github.com/betajs/mock-file-server/blob/master/LICENSE"
+        }
+    ],
+    "author": {
+        "name": "BetaJS",
+        "email": "info@betajs.com"
+    },
+    "bugs": {
+        "url": "https://github.com/betajs/mock-file-server/issues"
+    },
+    "name": "mock-file-server",
+    "description": "BetaJS Mock File Server for Testing",
+    "version": "0.1.10",
+    "contributors": [
+        "Oliver Friedmann"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/betajs/mock-file-server.git"
+    },
+    "engines": {
+        "node": ""
+    },
+    "dependencies": {
+        "express": "",
+        "multer": "",
+        "body-parser": "",
+        "node-getopt": ""
+    },
+    "devDependencies": {
+        "betajs-compile": "betajs/betajs-compile",
+        "grunt-contrib-jshint": "",
+        "grunt-template": "",
+        "grunt": ""
+    },
+    "keywords": [
+        "gruntplugin"
+    ],
+    "meta": {
+        "blog": "http://blog.betajs.com",
+        "twitter": "http://twitter.com/thebetajs",
+        "badges": {
+            "codeclimate": true,
+            "travis": false,
+            "npm": true
+        },
+        "compatability": {
+            "NodeJS": "0.10 - Latest"
+        },
+        "installdoc": "docsrc/common/install.md",
+        "summarydoc": "docsrc/common/summary.md"
+    }
+}

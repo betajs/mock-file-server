@@ -1,0 +1,43 @@
+{
+	"name": "mock-file-server",
+	"description": "BetaJS Mock File Server for Testing",
+	"version": "0.1.10",
+	"homepage": "https://github.com/betajs/mock-file-server",
+	"contributors": [
+		"Oliver Friedmann"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/betajs/mock-file-server.git"
+	},
+	"engines": {
+		"node": ""
+	},
+	"dependencies": {
+		"express": "",
+		"multer": "",
+		"body-parser": "",
+		"node-getopt": ""
+	},
+	"devDependencies": {
+		"betajs-compile": "betajs/betajs-compile",
+		"grunt-contrib-jshint": "",
+		"grunt-template": "",
+		"grunt": ""
+	},
+	"keywords": [
+		"gruntplugin"
+	],
+	"meta": {
+		"badges": {
+			"codeclimate": true,
+			"travis": false,
+			"npm": true
+		},
+		"compatability": {
+			"NodeJS": "0.10 - Latest"
+		},
+		"installdoc": "docsrc/common/install.md",
+		"summarydoc": "docsrc/common/summary.md"
+	}
+}

@@ -1,0 +1,27 @@
+engines:
+  scss-lint:
+    enabled: true
+  eslint:
+    enabled: true
+  csslint:
+    enabled: true
+  fixme:
+    enabled: true
+ratings:
+  paths:
+  - tasks
+exclude_paths:
+- dist/*
+- dist/**/*
+- compile/*
+- compile/**/*
+- vendors/*
+- vendors/**/*
+- docsrc/*
+- docsrc/**/*
+- demos/*
+- demos/**/*
+- tests/*
+- tests/**/*
+- docs/*
+- docs/**/*
