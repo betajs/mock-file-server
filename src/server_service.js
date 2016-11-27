@@ -18,6 +18,12 @@ module.exports = {
 		});
 
 		var fileService = require(__dirname + "/file_service.js")(fileSystem);
+		
+		express.use(function(request, response, next) {
+			response.header("Access-Control-Allow-Origin", "*");
+			response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+			next();
+		});
 
 		express.get('/files/:filename/size', function (request, response) {
 			var result = fileService.getFileSize(request.params.filename);

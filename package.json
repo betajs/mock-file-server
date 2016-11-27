@@ -16,7 +16,7 @@
     },
     "name": "mock-file-server",
     "description": "BetaJS Mock File Server for Testing",
-    "version": "0.1.10",
+    "version": "0.1.11",
     "contributors": [
         "Oliver Friedmann"
     ],
@@ -34,7 +34,7 @@
         "node-getopt": ""
     },
     "devDependencies": {
-        "betajs-compile": "betajs/betajs-compile",
+        "betajs-compile": "",
         "grunt-contrib-jshint": "",
         "grunt-template": "",
         "grunt": ""
