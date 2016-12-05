@@ -37,7 +37,11 @@ module.exports = {
 
 		express.post("/files/:filename", upload.single('file'), function (request, response) {
 			var result = fileService.writeFile(request.params.filename, request.file.buffer);
-			response.status(result.status).send(result.data);
+			if (request.query._postmessage) {
+				response.status(result.status).header("Content-Type", "text/html").send("<!DOCTYPE html><script>parent.postMessage(JSON.stringify(" + JSON.stringify(result.data) + "), '*');</script>");
+			} else {
+				response.status(result.status).send(result.data);
+			}
 		});
 
 		express.post("/chunk/:filename", upload.single('file'), function (request, response) {

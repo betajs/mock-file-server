@@ -50,4 +50,4 @@ module.exports = function(options) {
 	}, options.timer);
 
 	return fileSystem;
-}
+};

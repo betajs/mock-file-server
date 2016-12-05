@@ -6,10 +6,10 @@ module.exports = function(grunt) {
 	gruntHelper.init(pkg, grunt);
 
 	gruntHelper
-	.lintTask(null, ['*.js', 'tasks/*.js'])
+	.lintTask(null, ['*.js', 'tasks/*.js', 'src/*.js'])
 	
     /* External Configurations */
-    .codeclimateTask(null, ["tasks"])
+    .codeclimateTask()
     
     /* Package */
     .packageTask()
