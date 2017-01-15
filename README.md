@@ -1,4 +1,4 @@
-# mock-file-server 0.1.14
+# mock-file-server 0.1.15
 [![Code Climate](https://codeclimate.com/github/betajs/mock-file-server/badges/gpa.svg)](https://codeclimate.com/github/betajs/mock-file-server)
 [![NPM](https://img.shields.io/npm/v/mock-file-server.svg?style=flat)](https://www.npmjs.com/package/mock-file-server)
 
