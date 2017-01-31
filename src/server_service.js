@@ -36,7 +36,6 @@ module.exports = {
 		});
 
 		express.post("/files/:filename", upload.single('file'), function (request, response) {
-			console.log("boom");
 			var result = fileService.writeFile(request.params.filename, request.file.buffer);
 			if (request.query._postmessage) {
 				if (request.query._postmessageid)

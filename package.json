@@ -16,7 +16,7 @@
     },
     "name": "mock-file-server",
     "description": "BetaJS Mock File Server for Testing",
-    "version": "0.1.15",
+    "version": "0.1.16",
     "contributors": [
         "Oliver Friedmann"
     ],
