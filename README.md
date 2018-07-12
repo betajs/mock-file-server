@@ -1,4 +1,4 @@
-# mock-file-server 0.1.16
+# mock-file-server 0.1.17
 [![Code Climate](https://codeclimate.com/github/betajs/mock-file-server/badges/gpa.svg)](https://codeclimate.com/github/betajs/mock-file-server)
 [![NPM](https://img.shields.io/npm/v/mock-file-server.svg?style=flat)](https://www.npmjs.com/package/mock-file-server)
 
@@ -38,6 +38,7 @@ The server creates the following endpoints:
 - POST `/files/:filename`: stores an uploaded single file with field name `file`
 - POST `/chunk/:filename`: stores a single chunk with field name `file` with the chunk number being present in the request body
 - POST `/assemble/:filename`: assembles a chunked file, checking the total size with the total size being present in the request body
+- OPTIONS : for CORS support, allowing every site to access files
 
 
 
