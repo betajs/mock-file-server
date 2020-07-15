@@ -19,6 +19,21 @@ module.exports = {
 
 		var fileService = require(__dirname + "/file_service.js")(fileSystem);
 		
+		var saveFile = function(request, response, filename) {
+			var result = fileService.writeFile(request.file.originalname, request.file.buffer);
+			if (request.query._postmessage) {
+				if (request.query._postmessageid)
+					result.data._postmessageid = request.query._postmessageid;
+				response
+					.status(result.status)
+					.header("Content-Type", "text/html")
+					.send("<!DOCTYPE html><script>parent.postMessage(JSON.stringify(" + JSON.stringify(result.data) + "), '*');</script>");
+			} else {
+				response.status(result.status).send(result.data);
+			}
+		};
+
+		
 		express.use(function(request, response, next) {
 			response.header("Access-Control-Allow-Origin", "*");
 			response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -35,15 +50,12 @@ module.exports = {
 			response.status(result.status).send(result.data);
 		});
 
+		express.post("/files", upload.single('file'), function (request, response) {
+			saveFile(request, response, request.file.originalname);
+		});
+
 		express.post("/files/:filename", upload.single('file'), function (request, response) {
-			var result = fileService.writeFile(request.params.filename, request.file.buffer);
-			if (request.query._postmessage) {
-				if (request.query._postmessageid)
-					result.data._postmessageid = request.query._postmessageid;
-				response.status(result.status).header("Content-Type", "text/html").send("<!DOCTYPE html><script>parent.postMessage(JSON.stringify(" + JSON.stringify(result.data) + "), '*');</script>");
-			} else {
-				response.status(result.status).send(result.data);
-			}
+			saveFile(request, response, request.params.filename);
 		});
 
 		express.post("/chunk/:filename", upload.single('file'), function (request, response) {
