@@ -29,14 +29,19 @@
 	"keywords": [
 		"gruntplugin"
 	],
+	"scripts": {
+		"relink": "npm link betajs-compile",
+		"reinstall": "rm -f package-lock.json && rm -rf node_modules && npm i && npm run relink"
+	},
 	"meta": {
 		"badges": {
 			"codeclimate": true,
 			"travis": false,
-			"npm": true
+			"npm": true,
+			"gitter": true
 		},
 		"compatability": {
-			"NodeJS": "0.10 - Latest"
+			"NodeJS": "4.0 - Latest"
 		},
 		"installdoc": "docsrc/common/install.md",
 		"summarydoc": "docsrc/common/summary.md"
