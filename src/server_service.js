@@ -20,7 +20,7 @@ module.exports = {
 		var fileService = require(__dirname + "/file_service.js")(fileSystem);
 		
 		var saveFile = function(request, response, filename) {
-			var result = fileService.writeFile(request.file.originalname, request.file.buffer);
+			var result = fileService.writeFile(filename || request.file.originalname, request.file.buffer);
 			if (request.query._postmessage) {
 				if (request.query._postmessageid)
 					result.data._postmessageid = request.query._postmessageid;
@@ -35,8 +35,10 @@ module.exports = {
 
 		
 		express.use(function(request, response, next) {
-			response.header("Access-Control-Allow-Origin", "*");
-			response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+			response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+			response.header("Access-Control-Allow-Origin", request.headers.origin || "*");
+			if (request.headers.origin)
+				response.header("Access-Control-Allow-Credentials", "true");
 			next();
 		});
 
@@ -58,6 +60,10 @@ module.exports = {
 			saveFile(request, response, request.params.filename);
 		});
 
+		express.options("*", function (request, response) {
+			response.status(200).send({});
+		});
+
 		express.post("/chunk/:filename", upload.single('file'), function (request, response) {
 			var result = fileService.writeFileChunk(request.params.filename, request.file.buffer, request.body[Config.parameterChunkNumber || "chunknumber"]);
 			response.status(result.status).send(result.data);
@@ -67,7 +73,7 @@ module.exports = {
 			var result = fileService.assembleFileChunks(request.params.filename, request.body[Config.parameterTotalSize || "totalsize"]);
 			response.status(result.status).send(result.data);
 		});
-		
+
 		return express;
 	},
 	
